@@ -16,7 +16,8 @@ Imports:
   rjd3toolkit (>= 0.3.2),
   rjd3modelling (>= 0.3.2),
   rjd3sts (>= 0.3.2),
-  checkmate
+  checkmate,
+  methods
 SystemRequirements: Java JRE 17 or higher
 License: EUPL
 URL: https://github.com/jdemetra/rjd3sa
