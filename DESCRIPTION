@@ -1,11 +1,13 @@
 Package: rjd3highfreq
 Type: Package
-Title: Interface to 'JDemetra+ 3.0' Seasonal Adjustment Software
+Title: Seasonal Adjustment of High Frequency Data with 'JDemetra+ 3.0'
 Version: 0.3.2
 Authors@R: c(
   person("Jean", "Palate", role = c("aut", "cre"),
                 email = "jean.palate@nbb.be"))
-Description: Interface around 'JDemetra+ 3.x' sa-toolkit (<https://github.com/jdemetra/jdemetra-core>), STACE project 
+Description: Interface around 'JDemetra+ 3.x' (<https://github.com/jdemetra/jdemetra-core>) seasonal adjustment software, STACE project.
+ It offers access to several functions around the seasonal adjustment of high frequency data time series: 
+ STL, Loess, fractional airline and extension of X-11.
 Depends:
   R (>= 3.6.0)
 Imports:
@@ -13,17 +15,18 @@ Imports:
   RProtoBuf (>= 0.4.17),
   rjd3toolkit (>= 0.3.2),
   rjd3modelling (>= 0.3.2),
-  rjd3sa (>= 0.3.2),
-  rjd3sts (>= 0.3.2)
-SystemRequirements: Java SE 8 or higher
+  rjd3sts (>= 0.3.2),
+  checkmate,
+  methods
+SystemRequirements: Java JRE 17 or higher
 License: EUPL
-URL: https://github.com/jdemetra/rjd3sa
+URL: https://github.com/palatej/rjd3highfreq
 LazyData: TRUE
 Suggests:
     knitr,
     rmarkdown
 RoxygenNote: 7.2.0
-BugReports: https://github.com/jdemetra/rjdemetra3/issues
+BugReports: https://github.com/palatej/rjd3highfreq/issues
 Encoding: UTF-8
 Collate: 
     'utils.R'
