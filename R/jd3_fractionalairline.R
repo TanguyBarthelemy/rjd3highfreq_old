@@ -151,7 +151,7 @@ multiAirlineDecomposition.raw<-function(y, periods, ndiff=2, ar=F, stde=F, nbcas
 #' @examples
 multiAirlineDecomposition.ssf<-function(jdecomp){
   jssf<-.jcall("demetra/highfreq/r/FractionalAirlineProcessor", "Ljdplus/ssf/extractors/SsfUcarimaEstimation;", "ssfDetails", jdecomp)
-  return (new(Class= "JD3_ProcResults", internal=jssf))
+  return (rjd3toolkit::jd3Object(jssf, result=T))
 }
 
 #' Title
@@ -186,7 +186,7 @@ fractionalAirlineDecomposition.raw<-function(y, period, sn=F, stde=F, nbcasts=0,
 #' @examples
 fractionalAirlineDecomposition.ssf<-function(jdecomp){
   jssf<-.jcall("demetra/highfreq/r/FractionalAirlineProcessor", "Ljdplus/ssf/extractors/SsfUcarimaEstimation;", "ssfDetails", jdecomp)
-  return (new(Class= "JD3_ProcResults", internal=jssf))
+  return (rjd3toolkit::jd3Object(jssf, result=T))
 }
 
 
