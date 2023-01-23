@@ -99,7 +99,7 @@ fractionalAirlineEstimation<-function(y, periods, x = NULL, ndiff=2, ar=F, mean 
   model<-list(
     y=as.numeric(y),
     variables=rjd3toolkit::proc_vector(jrslt, "variables"),
-    X=rjd3toolkit::proc_matrix(jrslt, "regressors"),
+    xreg=rjd3toolkit::proc_matrix(jrslt, "regressors"),
     b=rjd3toolkit::proc_vector(jrslt, "b"),
     bcov=rjd3toolkit::proc_matrix(jrslt, "bvar"),
     linearized=rjd3toolkit::proc_vector(jrslt, "lin"),
