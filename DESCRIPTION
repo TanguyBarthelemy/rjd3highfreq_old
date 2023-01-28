@@ -13,8 +13,7 @@ Depends:
 Imports:
   rJava (>= 1.0-6),
   RProtoBuf (>= 0.4.17),
-  rjd3toolkit (>= 0.3.2),
-  rjd3modelling (>= 0.3.2),
+  rjd3toolkit (>= 0.7.0),
   rjd3sts (>= 0.3.2),
   checkmate,
   methods
@@ -25,7 +24,7 @@ LazyData: TRUE
 Suggests:
     knitr,
     rmarkdown
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 BugReports: https://github.com/palatej/rjd3highfreq/issues
 Encoding: UTF-8
 Collate: 

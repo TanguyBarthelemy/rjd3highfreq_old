@@ -12,7 +12,7 @@ arima_extract<-function(jrslt, path){
   delta<-rjd3toolkit::proc_vector(jrslt, paste0(path, ".delta"))
   ma<-rjd3toolkit::proc_vector(jrslt, paste0(path, ".ma"))
   var<-rjd3toolkit::proc_numeric(jrslt, paste0(path, ".var"))
-  return (rjd3modelling::arima.model(str, ar,delta,ma,var))
+  return (rjd3toolkit::arima.model(str, ar,delta,ma,var))
 }
 
 
@@ -74,7 +74,7 @@ multiAirlineDecomposition<-function(y, periods, ndiff=2, ar=F, stde=F, nbcasts=0
 #'
 #' @param y input time series.
 #' @param periods vector of periods values of the seasonal component, any positive real numbers.
-#' @param x matrix of user-defined regression variables (see rjd3modelling for building calendar regressors).
+#' @param x matrix of user-defined regression variables (see rjd3toolkit for building calendar regressors).
 #' @param mean add constant mean to y after differencing.
 #' @param outliers type of outliers sub vector of c("AO","LS","WO")
 #' @param criticalValue critical value for automatic outlier detection
@@ -205,7 +205,7 @@ jd2r_multiAirlineDecomposition<-function(jrslt, stde=F){
   ncmps<-rjd3toolkit::proc_int(jrslt, "ucarima.size")
   model<-arima_extract(jrslt, "ucarima.model")
   cmps<-lapply(1:ncmps, function(cmp){return (ucm_extract(jrslt, cmp))})
-  ucarima<-rjd3modelling::ucarima.model(model, cmps)
+  ucarima<-rjd3toolkit::ucarima.model(model, cmps)
   
   yc<-rjd3toolkit::proc_vector(jrslt, "y")
   estimation<-list(
@@ -246,7 +246,7 @@ jd2r_fractionalAirlineDecomposition<-function(jrslt, sn=F, stde=F){
   ncmps<-rjd3toolkit::proc_int(jrslt, "ucarima.size")
   model<-arima_extract(jrslt, "ucarima.model")
   cmps<-lapply(1:ncmps, function(cmp){return (ucm_extract(jrslt, cmp))})
-  ucarima<-rjd3modelling::ucarima.model(model, cmps)
+  ucarima<-rjd3toolkit::ucarima.model(model, cmps)
   
   yc<-rjd3toolkit::proc_vector(jrslt, "y")
   sa<-rjd3toolkit::proc_vector(jrslt, "sa")
