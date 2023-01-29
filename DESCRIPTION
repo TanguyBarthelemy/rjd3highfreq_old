@@ -9,12 +9,12 @@ Description: Interface around 'JDemetra+ 3.x' (<https://github.com/jdemetra/jdem
  It offers access to several functions around the seasonal adjustment of high frequency data time series: 
  STL, Loess, fractional airline and extension of X-11.
 Depends:
-  R (>= 3.6.0)
+  R (>= 3.6.0),
+  rjd3sts (>= 0.3.2)
 Imports:
   rJava (>= 1.0-6),
   RProtoBuf (>= 0.4.17),
   rjd3toolkit (>= 0.7.0),
-  rjd3sts (>= 0.3.2),
   checkmate,
   methods
 SystemRequirements: Java JRE 17 or higher
