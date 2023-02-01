@@ -1,7 +1,7 @@
 Package: rjd3highfreq
 Type: Package
 Title: Seasonal Adjustment of High Frequency Data with 'JDemetra+ 3.0'
-Version: 0.3.2
+Version: 0.5.0
 Authors@R: c(
   person("Jean", "Palate", role = c("aut", "cre"),
                 email = "jean.palate@nbb.be"))
@@ -10,7 +10,7 @@ Description: Interface around 'JDemetra+ 3.x' (<https://github.com/jdemetra/jdem
  STL, Loess, fractional airline and extension of X-11.
 Depends:
   R (>= 3.6.0),
-  rjd3sts (>= 0.3.2)
+  rjd3sts (>= 0.5.0)
 Imports:
   rJava (>= 1.0-6),
   RProtoBuf (>= 0.4.17),
@@ -30,6 +30,5 @@ Encoding: UTF-8
 Collate: 
     'utils.R'
     'jd3_fractionalairline.R'
-    'jd3_stl.R'
     'jd3_x11.R'
     'zzz.R'

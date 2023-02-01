@@ -99,10 +99,16 @@ fractionalAirlineEstimation<-function(y, periods, x = NULL, ndiff=2, ar=F, mean 
   model<-list(
     y=as.numeric(y),
     variables=rjd3toolkit::.proc_vector(jrslt, "variables"),
-    X=rjd3toolkit::.proc_matrix(jrslt, "regressors"),
+    xreg=rjd3toolkit::.proc_matrix(jrslt, "regressors"),
     b=rjd3toolkit::.proc_vector(jrslt, "b"),
     bcov=rjd3toolkit::.proc_matrix(jrslt, "bvar"),
-    linearized=rjd3toolkit::.proc_vector(jrslt, "lin")
+    linearized=rjd3toolkit::.proc_vector(jrslt, "lin"),
+    component_wo=rjd3toolkit::.proc_vector(jrslt, "component_wo"),
+    component_ao=rjd3toolkit::.proc_vector(jrslt, "component_ao"),
+    component_ls=rjd3toolkit::.proc_vector(jrslt, "component_ls"),
+    component_outliers=rjd3toolkit::.proc_vector(jrslt, "component_outliers"),
+    component_userdef_reg_variables=rjd3toolkit::.proc_vector(jrslt, "component_userdef_reg_variables"),
+    component_mean=rjd3toolkit::.proc_vector(jrslt, "component_mean")
   )
   estimation<-list(
     parameters=rjd3toolkit::.proc_vector(jrslt, "parameters"),
@@ -151,7 +157,7 @@ multiAirlineDecomposition.raw<-function(y, periods, ndiff=2, ar=F, stde=F, nbcas
 #' @examples
 multiAirlineDecomposition.ssf<-function(jdecomp){
   jssf<-.jcall("demetra/highfreq/r/FractionalAirlineProcessor", "Ljdplus/ssf/extractors/SsfUcarimaEstimation;", "ssfDetails", jdecomp)
-  return (new(Class= "JD3_ProcResults", internal=jssf))
+  return (rjd3toolkit::jd3Object(jssf, result=T))
 }
 
 #' Title
@@ -186,7 +192,7 @@ fractionalAirlineDecomposition.raw<-function(y, period, sn=F, stde=F, nbcasts=0,
 #' @examples
 fractionalAirlineDecomposition.ssf<-function(jdecomp){
   jssf<-.jcall("demetra/highfreq/r/FractionalAirlineProcessor", "Ljdplus/ssf/extractors/SsfUcarimaEstimation;", "ssfDetails", jdecomp)
-  return (new(Class= "JD3_ProcResults", internal=jssf))
+  return (rjd3toolkit::jd3Object(jssf, result=T))
 }
 
 
