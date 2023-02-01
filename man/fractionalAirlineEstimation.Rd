@@ -22,7 +22,7 @@ fractionalAirlineEstimation(
 
 \item{periods}{vector of periods values of the seasonal component, any positive real numbers.}
 
-\item{x}{matrix of user-defined regression variables (see rjd3modelling for building calendar regressors).}
+\item{x}{matrix of user-defined regression variables (see rjd3toolkit for building calendar regressors).}
 
 \item{mean}{add constant mean to y after differencing.}
 
