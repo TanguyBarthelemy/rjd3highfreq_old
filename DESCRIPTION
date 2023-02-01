@@ -9,13 +9,12 @@ Description: Interface around 'JDemetra+ 3.x' (<https://github.com/jdemetra/jdem
  It offers access to several functions around the seasonal adjustment of high frequency data time series: 
  STL, Loess, fractional airline and extension of X-11.
 Depends:
-  R (>= 3.6.0)
+  R (>= 3.6.0),
+  rjd3sts (>= 0.5.0)
 Imports:
   rJava (>= 1.0-6),
   RProtoBuf (>= 0.4.17),
-  rjd3toolkit (>= 0.5.0),
-  rjd3modelling (>= 0.5.0),
-  rjd3sts (>= 0.5.0),
+  rjd3toolkit (>= 0.7.0),
   checkmate,
   methods
 SystemRequirements: Java JRE 17 or higher
@@ -25,7 +24,7 @@ LazyData: TRUE
 Suggests:
     knitr,
     rmarkdown
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 BugReports: https://github.com/palatej/rjd3highfreq/issues
 Encoding: UTF-8
 Collate: 
