@@ -31,4 +31,5 @@ Collate:
     'utils.R'
     'jd3_fractionalairline.R'
     'jd3_x11.R'
+    'print.R'
     'zzz.R'
