@@ -30,7 +30,7 @@ x11<-function(y, period, mul=TRUE, trend.horizon=6, trend.degree=2,
   seas1=match.arg(seas.s1)
   tkernel=match.arg(trend.kernel)
   asym=match.arg(trend.asymmetric)
-  jrslt<-.jcall("demetra/saexperimental/r/X11Decomposition", "Ldemetra/saexperimental/r/X11Decomposition$Results;", "process", as.numeric(y), period, mul
+  jrslt<-.jcall("jdplus/experimentalsa/base/r/X11Decomposition", "Ljdplus/experimentalsa/base/r/X11Decomposition$Results;", "process", as.numeric(y), period, mul
                 , as.integer(trend.horizon), as.integer(trend.degree),
                 tkernel, asym, seas0, seas1, extreme.lsig, extreme.usig)
   decomposition<-list(
@@ -68,7 +68,7 @@ x11<-function(y, period, mul=TRUE, trend.horizon=6, trend.degree=2,
 #'
 #' @examples
 henderson<-function(y, length, musgrave=TRUE, ic=4.5){
-  return (.jcall("demetra/saexperimental/r/X11Decomposition", "[D", "henderson", as.numeric(y), as.integer(length), musgrave, ic))
+  return (.jcall("jdplus/experimentalsa/base/r/X11Decomposition", "[D", "henderson", as.numeric(y), as.integer(length), musgrave, ic))
 }
 
 # See Proietti-Luati [2008] (Real time estimation in local polynomial regression...) for the terminology
@@ -88,6 +88,6 @@ localpolynomials<-function(y, horizon, degree=3, kernel=c("Henderson", "Uniform"
   d<-2/(sqrt(pi)*ic)
   kernel=match.arg(kernel)
   endpoints=match.arg(endpoints)
-  return (.jcall("demetra/saexperimental/r/LocalPolynomialFilters", "[D", "filter", as.numeric(y), as.integer(horizon), as.integer(degree), kernel, endpoints, d))
+  return (.jcall("jdplus/experimentalsa/base/r/LocalPolynomialFilters", "[D", "filter", as.numeric(y), as.integer(horizon), as.integer(degree), kernel, endpoints, d))
 }
 

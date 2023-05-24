@@ -36,8 +36,8 @@ fractionalAirlineDecomposition <- function(y, period, sn = F, stde = F, nbcasts 
   checkmate::assertNumeric(y, null.ok = F)
   checkmate::assertNumeric(period, len = 1, null.ok = F)
   checkmate::assertLogical(sn, len = 1, null.ok = F)
-  jrslt <- .jcall("demetra/highfreq/r/FractionalAirlineProcessor", 
-                  "Ljdplus/highfreq/LightExtendedAirlineDecomposition;", 
+  jrslt <- .jcall("jdplus/highfreq/base/r/FractionalAirlineProcessor", 
+                  "Ljdplus/highfreq/base/core/extendedairline/decomposition/LightExtendedAirlineDecomposition;", 
                   "decompose", as.numeric(y), period, sn, stde, as.integer(nbcasts), 
                   as.integer(nfcasts))
   return(jd2r_fractionalAirlineDecomposition(jrslt, sn, stde, period))
@@ -66,8 +66,8 @@ multiAirlineDecomposition <- function(y, periods, ndiff = 2, ar = F, stde = F, n
                                           nbcasts = nbcasts, nfcasts = nfcasts))
   }
   checkmate::assertNumeric(y, null.ok = F)
-  jrslt <- .jcall("demetra/highfreq/r/FractionalAirlineProcessor", 
-                  "Ljdplus/highfreq/LightExtendedAirlineDecomposition;", 
+  jrslt <- .jcall("jdplus/highfreq/base/r/FractionalAirlineProcessor", 
+                  "Ljdplus/highfreq/base/core/extendedairline/decomposition/LightExtendedAirlineDecomposition;", 
                   "decompose", as.numeric(y), .jarray(periods), as.integer(ndiff), 
                   ar, stde, as.integer(nbcasts), as.integer(nfcasts))
   if (length(periods) == 1) {
@@ -104,8 +104,8 @@ fractionalAirlineEstimation <- function(
   if (is.null(outliers)) 
     joutliers <- .jnull("[Ljava/lang/String;")
   else joutliers = .jarray(outliers, "java.lang.String")
-  jrslt <- .jcall("demetra/highfreq/r/FractionalAirlineProcessor", 
-                  "Ljdplus/highfreq/ExtendedAirlineEstimation;", "estimate", 
+  jrslt <- .jcall("jdplus/highfreq/base/r/FractionalAirlineProcessor", 
+                  "Ljdplus/highfreq/base/core/extendedairline/ExtendedAirlineEstimation;", "estimate", 
                   as.numeric(y), rjd3toolkit::.r2jd_matrix(x), mean, .jarray(periods), 
                   as.integer(ndiff), ar, joutliers, criticalValue, precision, 
                   approximateHessian)
@@ -152,7 +152,9 @@ fractionalAirlineEstimation <- function(
 multiAirlineDecomposition.raw<-function(y, periods, ndiff=2, ar=F, stde=F, nbcasts=0, nfcasts=0){
   checkmate::assertNumeric(y, null.ok = F)
   
-  jrslt<-.jcall("demetra/highfreq/r/FractionalAirlineProcessor", "Ljdplus/highfreq/LightExtendedAirlineDecomposition;", "decompose", as.numeric(y), 
+  jrslt<-.jcall("jdplus/highfreq/base/r/FractionalAirlineProcessor", 
+                "Ljdplus/highfreq/base/core/extendedairline/decomposiiton/LightExtendedAirlineDecomposition;", 
+                "decompose", as.numeric(y), 
                 .jarray(periods), as.integer(ndiff), ar, stde, as.integer(nbcasts), as.integer(nfcasts))
   
   return (jrslt)
@@ -167,7 +169,8 @@ multiAirlineDecomposition.raw<-function(y, periods, ndiff=2, ar=F, stde=F, nbcas
 #'
 #' @examples
 multiAirlineDecomposition.ssf<-function(jdecomp){
-  jssf<-.jcall("demetra/highfreq/r/FractionalAirlineProcessor", "Ljdplus/ssf/extractors/SsfUcarimaEstimation;", "ssfDetails", jdecomp)
+  jssf<-.jcall("jdplus/highfreq/base/r/FractionalAirlineProcessor", 
+               "Ljdplus/highfreq/base/core/ssf/extractors/SsfUcarimaEstimation;", "ssfDetails", jdecomp)
   return (rjd3toolkit::jd3Object(jssf, result=T))
 }
 
@@ -188,7 +191,9 @@ fractionalAirlineDecomposition.raw<-function(y, period, sn=F, stde=F, nbcasts=0,
   checkmate::assertNumeric(y, null.ok = F)
   checkmate::assertNumeric(period, len = 1, null.ok = F)
   checkmate::assertLogical(sn, len = 1, null.ok = F)
-  jrslt<-.jcall("demetra/highfreq/r/FractionalAirlineProcessor", "Ljdplus/highfreq/LightExtendedAirlineDecomposition;", "decompose", as.numeric(y), 
+  jrslt<-.jcall("jdplus/highfreq/base/r/FractionalAirlineProcessor", 
+                "Ljdplus/highfreq/base/core/extendedairline/decomposiiton/LightExtendedAirlineDecomposition;", 
+                "decompose", as.numeric(y), 
                 period, sn, stde, as.integer(nbcasts), as.integer(nfcasts))
   return (jrslt)
 }
