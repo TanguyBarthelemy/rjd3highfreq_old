@@ -4,7 +4,7 @@
 \alias{jd2r_multiAirlineDecomposition}
 \title{Title}
 \usage{
-jd2r_multiAirlineDecomposition(jrslt, stde = F)
+jd2r_multiAirlineDecomposition(jrslt, stde = F, periods)
 }
 \arguments{
 \item{jrslt}{}

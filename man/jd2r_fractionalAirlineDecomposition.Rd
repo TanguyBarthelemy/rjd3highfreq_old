@@ -4,7 +4,7 @@
 \alias{jd2r_fractionalAirlineDecomposition}
 \title{Title}
 \usage{
-jd2r_fractionalAirlineDecomposition(jrslt, sn = F, stde = F)
+jd2r_fractionalAirlineDecomposition(jrslt, sn = F, stde = F, period)
 }
 \arguments{
 \item{jrslt}{}
